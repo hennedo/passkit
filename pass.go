@@ -199,7 +199,7 @@ func (p *Pass) GetValidationErrors() []string {
 		validationErrors = append(validationErrors, "Only one pass should be set")
 	}
 
-	if len(p.AuthenticationToken) < expectedAuthTokenLen {
+	if p.WebServiceURL != "" && (len(p.AuthenticationToken) < expectedAuthTokenLen) {
 		validationErrors = append(validationErrors,
 			"The authenticationToken needs to be at least "+strconv.Itoa(expectedAuthTokenLen)+" characters long")
 	}
